@@ -1,4 +1,5 @@
 var mongoose = require("mongoose");
+var Note = require("./Note");
 
 // Save a reference to the Schema constructor
 var Schema = mongoose.Schema;
@@ -11,6 +12,9 @@ var ArticleSchema = new Schema({
     type: String,
     required: true
   },
+  summary: {
+type: String,
+},
   // `link` is required and of type String
   link: {
     type: String,
@@ -19,7 +23,12 @@ var ArticleSchema = new Schema({
   // `note` is an object that stores a Note id
   // The ref property links the ObjectId to the Note model
   // This allows us to populate the Article with an associated Note
-  note: {
+saved: {
+  tpe: Boolean,
+  default: false
+},
+
+  notes: {
     type: Schema.Types.ObjectId,
     ref: "Note"
   }

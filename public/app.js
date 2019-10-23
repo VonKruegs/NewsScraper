@@ -6,7 +6,7 @@ $.getJSON("/articles", function(data) {
     $("#articles").append("<p class=lead text-danger data-id='" + data[i]._id + "'>" + data[i].title + "<br />" + data[i].link + "</p>");
   }
 });
-
+//
 
 // Whenever someone clicks a p tag
 $(document).on("click", "p", function() {
